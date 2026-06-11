@@ -96,10 +96,10 @@ export default function Contact() {
               <motion.form
                 key="contact-form"
                 onSubmit={handleSubmit}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="bg-parchment text-charcoal p-6 md:p-8 rounded grid grid-cols-1 md:grid-cols-12 gap-8 relative overflow-hidden rough-border"
+                className="bg-parchment text-charcoal p-6 md:p-8 rounded-none border border-charcoal/20 grid grid-cols-1 md:grid-cols-12 gap-8 relative overflow-hidden shadow-2xl"
               >
                 {/* Left: Input Fields (Letter style lines) */}
                 <div className="md:col-span-7 space-y-6">
@@ -166,13 +166,13 @@ export default function Contact() {
                     </div>
                     
                     {/* The Stamp Graphic */}
-                    <div className="w-16 h-20 border-2 border-dashed border-charcoal/30 p-1 bg-parchment rotate-3 flex flex-col justify-between items-center select-none shadow-sm">
-                      <div className="w-full h-full border border-charcoal/10 bg-charcoal/5 flex items-center justify-center">
-                        <Sparkles className="w-6 h-6 text-amber-accent" />
-                      </div>
-                      <span className="font-mono text-[8px] text-charcoal/50 tracking-tighter">
-                        K. RAJ // 2026
-                      </span>
+                    <div className="w-44 h-44 border-2 border-dashed border-charcoal/30 bg-parchment rotate-3 relative overflow-hidden select-none shadow-md hover:rotate-0 hover:scale-[1.03] transition-all duration-300 z-10">
+                       <img
+                         src="/wink.jpg"
+                         alt="Wink Stamp"
+                         className="w-full h-full object-cover"
+                         draggable="false"
+                       />
                     </div>
                   </div>
 
@@ -249,7 +249,7 @@ export default function Contact() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="bg-parchment text-charcoal p-12 rounded flex flex-col justify-center items-center min-h-[350px] relative overflow-hidden rough-border"
+                className="bg-parchment text-charcoal p-12 rounded-none border border-charcoal/20 flex flex-col justify-center items-center min-h-[350px] relative overflow-hidden shadow-2xl"
               >
                 {/* SVG Animated Paper Airplane flying */}
                 <svg className="w-24 h-24 text-amber-accent animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -266,7 +266,7 @@ export default function Contact() {
                 key="sent-confirmation"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-parchment text-charcoal p-10 rounded text-center flex flex-col justify-center items-center min-h-[350px] relative overflow-hidden rough-border"
+                className="bg-parchment text-charcoal p-10 rounded-none border border-charcoal/20 text-center flex flex-col justify-center items-center min-h-[350px] relative overflow-hidden shadow-2xl"
               >
                 <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 mb-6">
                   <Sparkles className="w-8 h-8 text-emerald-500" />
@@ -292,7 +292,7 @@ export default function Contact() {
 
         {/* Footer / Copyright details */}
         <div className="flex justify-center items-center border-t border-steel/20 pt-8 text-[10px] font-mono text-parchment/30 select-none">
-          <span>KRRISH RAJ © 2026 // ALL SYSTEM LOGS GREEN</span>
+          <span>MADE WITH ❤️ BY KRRISH RAJ // ALL SYSTEM LOGS GREEN</span>
         </div>
 
       </div>

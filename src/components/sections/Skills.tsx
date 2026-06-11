@@ -138,26 +138,6 @@ export default function Skills() {
 
           {/* SVG blueprint alignment marks overlay */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30 z-0">
-            <motion.path
-              d="M 20,20 L 20,200 L 200,200"
-              fill="none"
-              stroke="#E25543"
-              strokeWidth="1"
-              variants={drawLine}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            />
-            <motion.path
-              d="M 95%,95% L 95%,80% L 80%,80%"
-              fill="none"
-              stroke="#E25543"
-              strokeWidth="1"
-              variants={drawLine}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            />
             <motion.circle
               cx="50%"
               cy="50%"

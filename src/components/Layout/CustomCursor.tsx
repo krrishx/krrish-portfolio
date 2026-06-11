@@ -7,6 +7,7 @@ export default function CustomCursor() {
   const [cursorType, setCursorType] = useState<"default" | "pointer" | "drag" | "draw">("default");
   const [cursorText, setCursorText] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const [isLightBg, setIsLightBg] = useState(false);
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -21,10 +22,32 @@ export default function CustomCursor() {
       document.body.style.cursor = "none";
     }
 
+    const checkLightBg = (el: HTMLElement | null): boolean => {
+      let current = el;
+      while (current) {
+        const cls = typeof current.className === "string" ? current.className : "";
+        if (
+          cls.includes("bg-parchment") ||
+          cls.includes("bg-[#faf5e6]") ||
+          cls.includes("bg-[#fbf2c0]") ||
+          cls.includes("bg-parchment-dark")
+        ) {
+          return true;
+        }
+        current = current.parentElement;
+      }
+      return false;
+    };
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
+
+      const target = e.target as HTMLElement;
+      if (target) {
+        setIsLightBg(checkLightBg(target));
+      }
     };
 
     const handleMouseLeaveWindow = () => {
@@ -40,6 +63,8 @@ export default function CustomCursor() {
 
       const cursorEl = target.closest("[data-cursor]");
       const textEl = target.closest("[data-cursor-text]");
+
+      setIsLightBg(checkLightBg(target));
 
       if (cursorEl) {
         setCursorType(cursorEl.getAttribute("data-cursor") as any);
@@ -88,8 +113,8 @@ export default function CustomCursor() {
         animate={{
           width: cursorType !== "default" ? 64 : 16,
           height: cursorType !== "default" ? 64 : 16,
-          borderColor: cursorType === "drag" ? "#E25543" : "rgba(243, 239, 224, 0.4)",
-          backgroundColor: cursorType === "drag" ? "rgba(226, 85, 67, 0.08)" : "rgba(243, 239, 224, 0.02)",
+          borderColor: cursorType === "drag" ? "#E25543" : isLightBg ? "rgba(30, 30, 30, 0.45)" : "rgba(243, 239, 224, 0.4)",
+          backgroundColor: cursorType === "drag" ? "rgba(226, 85, 67, 0.08)" : isLightBg ? "rgba(30, 30, 30, 0.03)" : "rgba(243, 239, 224, 0.02)",
         }}
         transition={{ type: "spring", stiffness: 350, damping: 25 }}
       />
@@ -98,7 +123,7 @@ export default function CustomCursor() {
         className="absolute w-1.5 h-1.5 bg-amber-accent rounded-full"
         animate={{
           scale: cursorType !== "default" ? 0.5 : 1,
-          backgroundColor: cursorType !== "default" ? "#E25543" : "#f3efe0",
+          backgroundColor: cursorType !== "default" ? "#E25543" : isLightBg ? "#1E1E1E" : "#f3efe0",
         }}
       />
       {/* Floating text label if any */}

@@ -468,7 +468,7 @@ const response = await gemini.generate({
               </div>
 
               {/* Showcase & Terminal Mockups */}
-              <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center relative">
                 {/* Metrics Notebook Card */}
                 <div className="md:col-span-4 grid grid-cols-3 md:flex md:flex-col gap-2 sm:gap-3 md:space-y-4">
                   {proj.metrics.map((met, i) => (
@@ -599,6 +599,30 @@ const response = await gemini.generate({
                       <span>100% COVERAGE</span>
                     </div>
                   </div>
+                )}
+
+                {proj.id === "portfolio" && (
+                  <motion.div
+                    drag
+                    dragConstraints={{ left: -400, right: 100, top: -450, bottom: 100 }}
+                    whileDrag={{ scale: 1.05, rotate: -2 }}
+                    initial={{ rotate: 6 }}
+                    data-cursor="drag"
+                    data-cursor-text="drag me"
+                    className="absolute -bottom-8 -right-4 lg:-bottom-10 lg:-right-8 bg-[#28282B] border border-steel/50 p-2.5 rounded shadow-2xl w-44 sm:w-52 lg:w-56 cursor-grab active:cursor-grabbing select-none hover:border-amber-accent transition-colors duration-300 z-30"
+                  >
+                    <div className="w-full aspect-[4/5] relative overflow-hidden bg-black/20 rounded-sm">
+                      <img
+                        src="/oh-yes.jpg"
+                        alt="Oh Yes Artwork"
+                        className="w-full h-full object-cover"
+                        draggable="false"
+                      />
+                    </div>
+                    <div className="mt-1.5 text-[8px] font-mono text-parchment/40 uppercase tracking-widest text-center">
+                      MEM_LOG // OH_YES!
+                    </div>
+                  </motion.div>
                 )}
               </div>
             </div>

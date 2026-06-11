@@ -75,7 +75,7 @@ export default function Hero() {
             variants={itemVariants}
             className="mt-6 text-base md:text-lg text-parchment/60 max-w-xl font-sans leading-relaxed"
           >
-            I build things.
+            I build cool stuff.
             <br />
             <br />
             Sometimes they&apos;re apps.
