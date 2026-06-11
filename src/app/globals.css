@@ -1,26 +1,183 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --font-sans: var(--font-space-grotesk), sans-serif;
+  --font-serif: var(--font-playfair), serif;
+  --font-syne: var(--font-syne), sans-serif;
+  --font-handwriting: var(--font-caveat), cursive;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-charcoal: #0b0b0c;
+  --color-parchment: #f3efe0;
+  --color-parchment-dark: #ece3ca;
+  --color-amber-accent: #ff6b00;
+  --color-steel: #2a2a2e;
+  --color-dark-gray: #151517;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-float-slow: float-slow 8s ease-in-out infinite;
+  --animate-float-medium: float-medium 6s ease-in-out infinite;
+  --animate-float-fast: float-fast 4s ease-in-out infinite;
+  --animate-scribble: scribble 0.6s steps(4) infinite;
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(-1deg); }
+    50% { transform: translateY(-12px) rotate(1.5deg); }
+  }
+  @keyframes float-medium {
+    0%, 100% { transform: translateY(0px) rotate(1deg); }
+    50% { transform: translateY(-8px) rotate(-1.5deg); }
+  }
+  @keyframes float-fast {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(1deg); }
+  }
+  @keyframes scribble {
+    0%, 100% { transform: skewX(-1deg) rotate(-0.5deg); }
+    25% { transform: skewX(1deg) rotate(0.5deg); }
+    50% { transform: skewX(-0.5deg) rotate(1deg); }
+    75% { transform: skewX(0.5deg) rotate(-1deg); }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Reset and base styles */
+:root {
+  --background: #0b0b0c;
+  --foreground: #f3efe0;
 }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0b0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6b00;
+}
+
+/* Grid & Notebook textures */
+.grid-notebook {
+  background-image: 
+    linear-gradient(rgba(243, 239, 224, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 239, 224, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.line-notebook {
+  background-image: linear-gradient(rgba(243, 239, 224, 0.03) 1px, transparent 1px);
+  background-size: 100% 24px;
+}
+
+/* Handwritten highlighters */
+.marker-highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.marker-highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: -4px;
+  right: -4px;
+  height: 10px;
+  background-color: rgba(255, 107, 0, 0.25);
+  z-index: -1;
+  transform: rotate(-1deg);
+  border-radius: 4px;
+}
+
+/* Tape effect for photos and notebook snippets */
+.tape-effect {
+  position: relative;
+}
+
+.tape-effect::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 80px;
+  height: 20px;
+  background-color: rgba(243, 239, 224, 0.15);
+  backdrop-filter: blur(2px);
+  border-left: 2px dashed rgba(255, 107, 0, 0.2);
+  border-right: 2px dashed rgba(255, 107, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* Rough borders for hand-drawn look */
+.rough-border {
+  border: 2px solid rgba(243, 239, 224, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.rough-border-heavy {
+  border: 3px solid rgba(243, 239, 224, 0.4);
+  border-radius: 20px 255px 10px 225px/225px 15px 255px 15px;
+}
+
+/* Custom smooth scroll wrapper style overrides */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Hollow text stroke for editorial headings */
+.stroke-text {
+  -webkit-text-stroke: 1.5px rgba(243, 239, 224, 0.3);
+  color: transparent;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stroke-text:hover {
+  -webkit-text-stroke: 1.5px #ff6b00;
+  color: rgba(255, 107, 0, 0.05);
+}
+
+/* Infinite Marquee animations */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee 40s linear infinite reverse;
+}
+
+
