@@ -108,7 +108,7 @@ export default function Highlights() {
   ];
 
   return (
-    <section id="highlights" className="relative min-h-screen pt-24 pb-12 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal overflow-hidden scroll-mt-20">
+    <section id="highlights" className="relative min-h-screen pt-24 pb-12 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal grid-notebook overflow-hidden scroll-mt-20">
       
       {/* Background Section Index Header */}
       <div className="absolute top-12 left-6 md:top-8 md:left-12 lg:left-20 font-mono text-[11px] text-amber-accent tracking-widest uppercase">

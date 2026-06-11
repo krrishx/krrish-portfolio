@@ -106,7 +106,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="relative min-h-screen pt-24 pb-12 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal overflow-hidden scroll-mt-20">
+    <section id="skills" className="relative min-h-screen pt-24 pb-12 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal grid-notebook overflow-hidden scroll-mt-20">
       
       {/* Background Section Index Header */}
       <div className="absolute top-12 left-6 md:top-8 md:left-12 lg:left-20 font-mono text-[11px] text-amber-accent tracking-widest uppercase">
@@ -141,7 +141,7 @@ export default function Skills() {
             <motion.path
               d="M 20,20 L 20,200 L 200,200"
               fill="none"
-              stroke="#ff6b00"
+              stroke="#E25543"
               strokeWidth="1"
               variants={drawLine}
               initial="hidden"
@@ -151,7 +151,7 @@ export default function Skills() {
             <motion.path
               d="M 95%,95% L 95%,80% L 80%,80%"
               fill="none"
-              stroke="#ff6b00"
+              stroke="#E25543"
               strokeWidth="1"
               variants={drawLine}
               initial="hidden"

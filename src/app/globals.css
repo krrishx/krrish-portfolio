@@ -6,12 +6,12 @@
   --font-syne: var(--font-syne), sans-serif;
   --font-handwriting: var(--font-caveat), cursive;
 
-  --color-charcoal: #0b0b0c;
+  --color-charcoal: #1E1E1E;
   --color-parchment: #f3efe0;
   --color-parchment-dark: #ece3ca;
-  --color-amber-accent: #ff6b00;
-  --color-steel: #2a2a2e;
-  --color-dark-gray: #151517;
+  --color-amber-accent: #E25543;
+  --color-steel: #3A3A3F;
+  --color-dark-gray: #28282B;
 
   --animate-float-slow: float-slow 8s ease-in-out infinite;
   --animate-float-medium: float-medium 6s ease-in-out infinite;
@@ -40,7 +40,7 @@
 
 /* Reset and base styles */
 :root {
-  --background: #0b0b0c;
+  --background: #1E1E1E;
   --foreground: #f3efe0;
 }
 
@@ -56,7 +56,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b0b0c;
+  background: #1E1E1E;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -65,7 +65,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff6b00;
+  background: #E25543;
 }
 
 /* Grid & Notebook textures */
@@ -95,7 +95,7 @@ body {
   left: -4px;
   right: -4px;
   height: 10px;
-  background-color: rgba(255, 107, 0, 0.25);
+  background-color: rgba(226, 85, 67, 0.25);
   z-index: -1;
   transform: rotate(-1deg);
   border-radius: 4px;
@@ -116,8 +116,8 @@ body {
   height: 20px;
   background-color: rgba(243, 239, 224, 0.15);
   backdrop-filter: blur(2px);
-  border-left: 2px dashed rgba(255, 107, 0, 0.2);
-  border-right: 2px dashed rgba(255, 107, 0, 0.2);
+  border-left: 2px dashed rgba(226, 85, 67, 0.2);
+  border-right: 2px dashed rgba(226, 85, 67, 0.2);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
@@ -162,8 +162,8 @@ html.lenis, html.lenis body {
 }
 
 .stroke-text:hover {
-  -webkit-text-stroke: 1.5px #ff6b00;
-  color: rgba(255, 107, 0, 0.05);
+  -webkit-text-stroke: 1.5px #E25543;
+  color: rgba(226, 85, 67, 0.05);
 }
 
 /* Infinite Marquee animations */

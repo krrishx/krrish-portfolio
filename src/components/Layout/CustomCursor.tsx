@@ -88,8 +88,8 @@ export default function CustomCursor() {
         animate={{
           width: cursorType !== "default" ? 64 : 16,
           height: cursorType !== "default" ? 64 : 16,
-          borderColor: cursorType === "drag" ? "#ff6b00" : "rgba(243, 239, 224, 0.4)",
-          backgroundColor: cursorType === "drag" ? "rgba(255, 107, 0, 0.08)" : "rgba(243, 239, 224, 0.02)",
+          borderColor: cursorType === "drag" ? "#E25543" : "rgba(243, 239, 224, 0.4)",
+          backgroundColor: cursorType === "drag" ? "rgba(226, 85, 67, 0.08)" : "rgba(243, 239, 224, 0.02)",
         }}
         transition={{ type: "spring", stiffness: 350, damping: 25 }}
       />
@@ -98,7 +98,7 @@ export default function CustomCursor() {
         className="absolute w-1.5 h-1.5 bg-amber-accent rounded-full"
         animate={{
           scale: cursorType !== "default" ? 0.5 : 1,
-          backgroundColor: cursorType !== "default" ? "#ff6b00" : "#f3efe0",
+          backgroundColor: cursorType !== "default" ? "#E25543" : "#f3efe0",
         }}
       />
       {/* Floating text label if any */}

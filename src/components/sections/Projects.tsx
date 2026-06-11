@@ -216,7 +216,7 @@ const response = await gemini.generate({
   ];
 
   return (
-    <div id="projects" ref={containerRef} className="relative h-auto lg:h-[600vh] bg-charcoal scroll-mt-20">
+    <div id="projects" ref={containerRef} className="relative h-auto lg:h-[600vh] bg-charcoal grid-notebook scroll-mt-20">
       {/* Sticky horizontal viewport */}
       <div className="lg:sticky lg:top-0 lg:h-screen w-full lg:overflow-hidden flex flex-col justify-start py-8 gap-8 md:gap-12 relative h-auto overflow-visible">
 
@@ -298,7 +298,7 @@ const response = await gemini.generate({
                   </div>
 
                   {/* Main Ticket body */}
-                  <div className="w-[48%] p-6 flex flex-col justify-between font-mono relative bg-[#131315]">
+                  <div className="w-[48%] p-6 flex flex-col justify-between font-mono relative bg-[#222225]">
                     <div className="space-y-1">
                       <span className="text-[9px] text-amber-accent/60 tracking-wider block">ACCESS PROTOCOL // AUTHORIZED</span>
                       <h3 className="font-syne font-bold text-2xl text-parchment leading-tight tracking-wide">ADMIT ONE</h3>
@@ -321,10 +321,10 @@ const response = await gemini.generate({
                   </div>
 
                   {/* Perforation Line Separator */}
-                  <div className="w-[2px] h-full border-r-2 border-dashed border-[#0b0b0c] relative z-20">
+                  <div className="w-[2px] h-full border-r-2 border-dashed border-[#1E1E1E] relative z-20">
                     {/* Perforation notches */}
-                    <div className="absolute -top-3.5 -right-[8px] w-4 h-4 bg-[#0b0b0c] rounded-full border border-steel/15 z-30" />
-                    <div className="absolute -bottom-3.5 -right-[8px] w-4 h-4 bg-[#0b0b0c] rounded-full border border-steel/15 z-30" />
+                    <div className="absolute -top-3.5 -right-[8px] w-4 h-4 bg-[#1E1E1E] rounded-full border border-steel/15 z-30" />
+                    <div className="absolute -bottom-3.5 -right-[8px] w-4 h-4 bg-[#1E1E1E] rounded-full border border-steel/15 z-30" />
                   </div>
 
                   {/* Tear-off Stub */}
@@ -474,12 +474,12 @@ const response = await gemini.generate({
                   {proj.metrics.map((met, i) => (
                     <div
                       key={i}
-                      className="bg-[#151517] border border-steel/30 p-2 sm:p-3 md:p-4 rounded flex flex-col justify-between shadow-lg hover:border-amber-accent transition-colors duration-300 min-w-0"
+                      className="bg-[#28282B] border border-steel/30 p-2 sm:p-3 md:p-4 rounded flex flex-col justify-between items-center text-center shadow-lg hover:border-amber-accent transition-colors duration-300 min-w-0"
                     >
                       <span className="font-mono text-[8px] sm:text-[9px] text-parchment/40 uppercase leading-tight break-words">
                         {met.label}
                       </span>
-                      <span className="font-syne text-xs sm:text-base md:text-xl lg:text-2xl font-black text-amber-accent mt-1 break-words">
+                      <span className="font-syne text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl font-black text-amber-accent mt-1 whitespace-nowrap">
                         {met.value}
                       </span>
                     </div>
@@ -495,7 +495,7 @@ const response = await gemini.generate({
 
                 {/* Code Terminal or Flagship Telemetry Visualizer */}
                 {proj.id === "machine_health" ? (
-                  <div className="md:col-span-8 bg-[#09090a] border border-steel/45 rounded shadow-2xl p-4 h-[260px] sm:h-[340px] flex flex-col justify-between select-none relative overflow-hidden z-20">
+                  <div className="md:col-span-8 bg-[#121214] border border-steel/45 rounded shadow-2xl p-4 h-[260px] sm:h-[340px] flex flex-col justify-between select-none relative overflow-hidden z-20">
                     <div className="absolute inset-0 grid-notebook opacity-25 pointer-events-none" />
 
                     {/* Telemetry Header */}
@@ -524,7 +524,7 @@ const response = await gemini.generate({
                         <path
                           d={points.map((val, idx) => `${idx === 0 ? "M" : "L"} ${(idx / (points.length - 1)) * 300} ${50 + val}`).join(" ")}
                           fill="none"
-                          stroke={injectFault ? "#f87171" : "#ff6b00"}
+                          stroke={injectFault ? "#f87171" : "#E25543"}
                           strokeWidth="1.5"
                           className="transition-colors duration-300"
                         />
@@ -573,9 +573,9 @@ const response = await gemini.generate({
                     </button>
                   </div>
                 ) : (
-                  <div className="md:col-span-8 bg-[#09090a] border border-steel/45 rounded shadow-2xl overflow-hidden h-[260px] sm:h-[340px] flex flex-col justify-between z-20">
+                  <div className="md:col-span-8 bg-[#121214] border border-steel/45 rounded shadow-2xl overflow-hidden h-[260px] sm:h-[340px] flex flex-col justify-between z-20">
                     {/* Top Bar */}
-                    <div className="bg-[#151517] px-4 py-2 border-b border-steel/30 flex justify-between items-center">
+                    <div className="bg-[#28282B] px-4 py-2 border-b border-steel/30 flex justify-between items-center">
                       <div className="flex items-center gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
@@ -591,7 +591,7 @@ const response = await gemini.generate({
                       <pre className="text-emerald-400/90">{proj.codeSnippet}</pre>
                     </div>
                     {/* Bottom Console Status */}
-                    <div className="bg-[#151517]/50 px-4 py-1.5 border-t border-steel/30 flex items-center justify-between text-[8px] font-mono text-parchment/40 select-none">
+                    <div className="bg-[#28282B]/50 px-4 py-1.5 border-t border-steel/30 flex items-center justify-between text-[8px] font-mono text-parchment/40 select-none">
                       <span className="flex items-center gap-1">
                         <Zap className="w-3 h-3 text-emerald-400" />
                         GREEN COMPILER

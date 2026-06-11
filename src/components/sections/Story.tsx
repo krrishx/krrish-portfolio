@@ -95,7 +95,7 @@ export default function Story() {
   ];
 
   return (
-    <section id="story" ref={storyRef} className="relative min-h-screen pt-24 pb-12 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal scroll-mt-20">
+    <section id="story" ref={storyRef} className="relative min-h-screen pt-24 pb-12 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal grid-notebook scroll-mt-20">
       {/* Background Section Index Header */}
       <div className="absolute top-12 left-6 md:top-8 md:left-12 lg:left-20 font-mono text-[11px] text-amber-accent tracking-widest uppercase">
         01 // BUILDER&apos;S LOG
@@ -159,7 +159,7 @@ export default function Story() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.08 }}
                   onClick={() => setActiveChapter(ch)}
-                  className="group relative bg-[#151517] border border-steel/30 p-5 rounded cursor-pointer hover:border-amber-accent transition-all duration-300"
+                  className="group relative bg-[#28282B] border border-steel/30 p-5 rounded cursor-pointer hover:border-amber-accent transition-all duration-300"
                 >
                   <div className="font-mono text-[10px] text-amber-accent/70 mb-2">{ch.year}</div>
                   <h4 className="font-sans font-bold text-sm text-parchment group-hover:text-amber-accent transition-colors">
@@ -193,7 +193,7 @@ export default function Story() {
                 <Card key={ch.id}>
                   <div className="w-full h-full transition-transform duration-300 hover:scale-[1.02] flex flex-col justify-between p-5 relative">
                     {/* Top Tab sticking out */}
-                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#121214] px-4 py-1 rounded-md text-[10px] font-mono flex items-center gap-1.5 shadow-md border border-zinc-800 text-zinc-300">
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#252528] px-4 py-1 rounded-md text-[10px] font-mono flex items-center gap-1.5 shadow-md border border-zinc-800 text-zinc-300">
                       <div className="w-3.5 h-3.5 flex items-center justify-center text-zinc-400">
                         {React.cloneElement(ch.icon as any, { className: "w-3.5 h-3.5 text-current" })}
                       </div>

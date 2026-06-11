@@ -137,11 +137,12 @@ export default function Hero() {
             data-cursor-text="drag me"
             className="absolute top-4 left-2 sm:left-4 lg:left-0 bg-parchment text-charcoal p-4 pb-10 w-56 sm:w-64 lg:w-72 shadow-2xl border border-steel/20 cursor-grab active:cursor-grabbing select-none z-10"
           >
-            <div className="w-full aspect-square bg-[#151517] relative overflow-hidden">
+            <div className="w-full aspect-square bg-[#28282B] relative overflow-hidden">
               <img
                 src="/DSC02996.JPG"
                 alt="Krrish Raj"
                 className="w-full h-full object-cover"
+                draggable="false"
               />
             </div>
             <p className="font-handwriting text-lg text-charcoal text-center mt-4 leading-none">
@@ -149,7 +150,7 @@ export default function Hero() {
             </p>
           </motion.div>
 
-          {/* System Card */}
+          {/* System Card (Ctrl+Z Artwork Swap) */}
           <motion.div
             drag
             dragConstraints={containerRef}
@@ -157,21 +158,18 @@ export default function Hero() {
             initial={isMobile ? { x: 0, y: 390, rotate: 6 } : { x: 80, y: 280, rotate: 6 }}
             data-cursor="drag"
             data-cursor-text="drag me"
-            className="absolute top-4 right-2 sm:right-8 bg-[#151517] border border-steel/50 text-parchment p-4 rounded w-48 sm:w-56 shadow-2xl flex items-center gap-3 cursor-grab active:cursor-grabbing select-none hover:border-amber-accent transition-colors duration-300 z-10"
+            className="absolute top-4 right-2 sm:right-8 bg-[#28282B] border border-steel/50 p-3 rounded w-52 sm:w-60 lg:w-64 shadow-2xl cursor-grab active:cursor-grabbing select-none hover:border-amber-accent transition-colors duration-300 z-10"
           >
-            <div className="w-8 h-8 rounded-full bg-amber-accent/10 border border-amber-accent/20 flex items-center justify-center shrink-0">
-              <Sparkles className="w-4 h-4 text-amber-accent" />
+            <div className="w-full aspect-[4/5] relative overflow-hidden bg-black/20 rounded-sm">
+              <img
+                src="/ctrl-z.jpg"
+                alt="Ctrl+Z Artwork"
+                className="w-full h-full object-cover"
+                draggable="false"
+              />
             </div>
-            <div>
-              <h4 className="font-mono text-[9px] text-parchment/40 uppercase tracking-wider">
-                CORE PIPELINE
-              </h4>
-              <p className="font-sans font-bold text-xs">
-                AI & Product Builder
-              </p>
-              <span className="text-[9px] font-mono text-emerald-400">
-                STATUS: RUNNING
-              </span>
+            <div className="mt-2 text-[8px] font-mono text-parchment/40 uppercase tracking-widest text-center">
+              SYSTEM_RESTORE // CTRL + Z
             </div>
           </motion.div>
         </div>
