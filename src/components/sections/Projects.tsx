@@ -85,7 +85,7 @@ export default function Projects() {
     
     is_anomaly = loss > threshold_matrix[machine_id]
     return {"loss": loss, "alert": is_anomaly}`,
-      link: "https://github.com/github-Krrish-Raj"
+      link: "https://github.com/krrishx"
     },
     {
       id: "smartbite",
@@ -116,7 +116,7 @@ const response = await gemini.generate({
   prompt: \`Generate meal plan for \${userProfile}\`,
   schema: mealPlanSchema
 });`,
-      link: "https://github.com/github-Krrish-Raj"
+      link: "https://github.com/krrishx"
     },
     {
       id: "scanguard",
@@ -144,7 +144,7 @@ const response = await gemini.generate({
     Imgproc.Canny(gray, edged, 75.0, 200.0)
     return findLargestContour(edged)
 }`,
-      link: "https://github.com/github-Krrish-Raj"
+      link: "https://github.com/krrishx"
     },
     {
       id: "zerotrace",
@@ -171,7 +171,7 @@ const response = await gemini.generate({
   };
   return <CertDialog progress={percent} verified={percent === 100} />;
 }`,
-      link: "https://github.com/github-Krrish-Raj"
+      link: "https://github.com/krrishx"
     },
     {
       id: "portfolio",
@@ -202,7 +202,7 @@ const response = await gemini.generate({
     </motion.div>
   );
 }`,
-      link: "https://github.com/github-Krrish-Raj"
+      link: "https://github.com/krrishx"
     }
   ];
 

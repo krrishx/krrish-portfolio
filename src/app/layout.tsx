@@ -51,6 +51,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${playfair.variable} ${syne.variable} ${caveat.variable} dark scroll-smooth`}
+      suppressHydrationWarning
     >
       <body className="bg-charcoal text-parchment font-sans selection:bg-amber-accent selection:text-charcoal min-h-screen antialiased overflow-x-hidden">
         <CustomCursor />

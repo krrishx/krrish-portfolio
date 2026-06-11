@@ -180,4 +180,14 @@ html.lenis, html.lenis body {
   animation: marquee 40s linear infinite reverse;
 }
 
-
+/* 3D Card Flip utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
