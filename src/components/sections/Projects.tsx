@@ -24,6 +24,16 @@ interface Project {
 
 export default function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -85,7 +95,7 @@ export default function Projects() {
     
     is_anomaly = loss > threshold_matrix[machine_id]
     return {"loss": loss, "alert": is_anomaly}`,
-      link: "https://github.com/krrishx"
+      link: "https://github.com/krrishx/AI-Driven-Operational-Anomaly-Detection"
     },
     {
       id: "smartbite",
@@ -116,7 +126,7 @@ const response = await gemini.generate({
   prompt: \`Generate meal plan for \${userProfile}\`,
   schema: mealPlanSchema
 });`,
-      link: "https://github.com/krrishx"
+      link: "https://github.com/krrishx/SmartBite"
     },
     {
       id: "scanguard",
@@ -144,7 +154,7 @@ const response = await gemini.generate({
     Imgproc.Canny(gray, edged, 75.0, 200.0)
     return findLargestContour(edged)
 }`,
-      link: "https://github.com/krrishx"
+      link: "https://github.com/krrishx/ScanGuard"
     },
     {
       id: "zerotrace",
@@ -171,7 +181,6 @@ const response = await gemini.generate({
   };
   return <CertDialog progress={percent} verified={percent === 100} />;
 }`,
-      link: "https://github.com/krrishx"
     },
     {
       id: "portfolio",
@@ -202,34 +211,48 @@ const response = await gemini.generate({
     </motion.div>
   );
 }`,
-      link: "https://github.com/krrishx"
+      link: "https://github.com/krrishx/krrish-portfolio"
     }
   ];
 
   return (
     <div id="projects" ref={containerRef} className="relative h-[600vh] bg-charcoal">
       {/* Sticky horizontal viewport */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between py-12">
+      <div className="lg:sticky lg:top-0 lg:h-screen w-full lg:overflow-hidden flex flex-col justify-start py-8 gap-8 md:gap-12 relative h-auto overflow-visible">
 
-        {/* Horizontal Navigation & Context Header */}
-        <div className="px-6 md:px-12 flex justify-between items-center z-20">
-          <div>
-            <span className="font-mono text-[11px] text-amber-accent tracking-widest uppercase block">
-              02 // PROJECTS PORTFOLIO
-            </span>
-            <span className="font-handwriting text-lg text-parchment/40">
-              * Swipe or scroll vertically to browse
-            </span>
+        {/* Horizontal Navigation, Context Header & Progress Bar */}
+        <div className="px-6 md:px-12 flex flex-col gap-3 z-20 w-full">
+          <div className="flex justify-between items-center w-full">
+            <div>
+              <span className="font-mono text-[11px] text-amber-accent tracking-widest uppercase block">
+                02 // PROJECTS PORTFOLIO
+              </span>
+              <span className="font-handwriting text-lg text-parchment/40">
+                * Swipe or scroll vertically to browse
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-xs font-mono text-parchment/40">
+              <span>[ SCROLL DOWN ]</span>
+            </div>
           </div>
-          <div className="flex items-center gap-2 text-xs font-mono text-parchment/40">
-            <span>[ SCROLL DOWN ]</span>
+
+          {/* Horizontal Scroll Progress bar (Top Positioned) */}
+          <div className="w-full bg-steel/20 h-[1.5px] rounded-full relative">
+            <motion.div
+              style={{ scaleX: scrollYProgress }}
+              className="absolute left-0 top-0 h-full w-full bg-amber-accent origin-left"
+            />
+          </div>
+          <div className="flex justify-between items-center text-[9px] font-mono text-parchment/30 select-none">
+            <span>INDEX: PROJECT 01</span>
+            <span>INDEX: PROJECT 05</span>
           </div>
         </div>
 
         {/* Transforming Horizontal Container */}
-        <motion.div style={{ x }} className="flex h-[75vh] w-[600vw] relative z-10">
+        <motion.div style={isMobile ? {} : { x }} className="flex flex-col lg:flex-row h-auto lg:h-[70vh] w-full lg:w-[600vw] relative z-10 gap-16 lg:gap-0">
           {/* Cover Panel / Heading slide */}
-          <div className="w-screen h-full shrink-0 px-6 md:px-12 lg:px-20 flex flex-col justify-center relative">
+          <div className="w-full lg:w-screen h-auto lg:h-full shrink-0 px-6 md:px-12 lg:px-20 flex flex-col justify-center relative py-12 lg:py-0 border-b border-steel/10 lg:border-b-0">
             <div className="absolute inset-y-0 right-0 w-[45%] border-l border-steel/10 pointer-events-none hidden md:block" />
 
             {/* Right side Projects Admission Ticket (taped to the page) */}
@@ -376,10 +399,10 @@ const response = await gemini.generate({
           {projects.map((proj) => (
             <div
               key={proj.id}
-              className="w-screen h-full shrink-0 px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+              className="w-full lg:w-screen h-auto lg:h-full shrink-0 px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-12 lg:py-0 border-b border-steel/10 lg:border-b-0"
             >
               {/* Project Title and Text Detail */}
-              <div className="lg:col-span-6 space-y-6">
+              <div className="lg:col-span-6 space-y-4">
                 <div className="flex items-baseline gap-4">
                   <span className="font-mono text-4xl text-amber-accent/30 font-extrabold select-none">
                     {proj.num}
@@ -411,7 +434,7 @@ const response = await gemini.generate({
                 </div>
 
                 {/* Structured Case Study Storytelling */}
-                <div className="space-y-4 border-l border-amber-accent/20 pl-4 py-2 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+                <div className="space-y-3.5 border-l border-amber-accent/20 pl-4 py-1.5 max-h-[130px] overflow-y-auto pr-2 custom-scrollbar">
                   <div className="space-y-1">
                     <span className="font-mono text-[9px] text-amber-accent uppercase tracking-wider block">01 / The Problem</span>
                     <p className="text-xs text-parchment/70 font-sans leading-relaxed">{proj.storytelling.problem}</p>
@@ -445,9 +468,9 @@ const response = await gemini.generate({
               </div>
 
               {/* Showcase & Terminal Mockups */}
-              <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-12 gap-4 h-full items-center">
+              <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                 {/* Metrics Notebook Card */}
-                <div className="md:col-span-4 space-y-4">
+                <div className="md:col-span-4 grid grid-cols-3 md:flex md:flex-col gap-3 md:space-y-4">
                   {proj.metrics.map((met, i) => (
                     <div
                       key={i}
@@ -472,7 +495,7 @@ const response = await gemini.generate({
 
                 {/* Code Terminal or Flagship Telemetry Visualizer */}
                 {proj.id === "machine_health" ? (
-                  <div className="md:col-span-8 bg-[#09090a] border border-steel/45 rounded shadow-2xl p-4 h-[340px] flex flex-col justify-between select-none relative overflow-hidden z-20">
+                  <div className="md:col-span-8 bg-[#09090a] border border-steel/45 rounded shadow-2xl p-4 h-[260px] sm:h-[340px] flex flex-col justify-between select-none relative overflow-hidden z-20">
                     <div className="absolute inset-0 grid-notebook opacity-25 pointer-events-none" />
 
                     {/* Telemetry Header */}
@@ -490,7 +513,7 @@ const response = await gemini.generate({
                     </div>
 
                     {/* Live Oscilloscope Wave */}
-                    <div className="h-32 w-full flex items-center justify-center relative my-2 bg-charcoal/20 border border-steel/20 rounded overflow-hidden">
+                    <div className="h-20 sm:h-32 w-full flex items-center justify-center relative my-2 bg-charcoal/20 border border-steel/20 rounded overflow-hidden">
                       {/* Grid overlay */}
                       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:10px_10px]" />
                       <div className="absolute top-1/2 left-0 w-full h-[1.5px] bg-steel/20" />
@@ -508,7 +531,7 @@ const response = await gemini.generate({
                       </svg>
                       {injectFault && (
                         <span className="absolute top-2 right-2 font-mono text-[8px] text-red-400 bg-black/60 px-1 rounded border border-red-500/20">
-                          RECONSTRUCTION MSE: {(0.84 + Math.random() * 0.05).toFixed(4)} (LMT: 0.250)
+                          MSE: {(0.84 + Math.random() * 0.05).toFixed(4)}
                         </span>
                       )}
                     </div>
@@ -550,7 +573,7 @@ const response = await gemini.generate({
                     </button>
                   </div>
                 ) : (
-                  <div className="md:col-span-8 bg-[#09090a] border border-steel/45 rounded shadow-2xl overflow-hidden h-[340px] flex flex-col justify-between z-20">
+                  <div className="md:col-span-8 bg-[#09090a] border border-steel/45 rounded shadow-2xl overflow-hidden h-[260px] sm:h-[340px] flex flex-col justify-between z-20">
                     {/* Top Bar */}
                     <div className="bg-[#151517] px-4 py-2 border-b border-steel/30 flex justify-between items-center">
                       <div className="flex items-center gap-1.5">
@@ -582,19 +605,6 @@ const response = await gemini.generate({
           ))}
         </motion.div>
 
-        {/* Horizontal Scroll Progress bar */}
-        <div className="px-6 md:px-12 z-20">
-          <div className="w-full bg-steel/20 h-[1.5px] rounded-full relative">
-            <motion.div
-              style={{ scaleX: scrollYProgress }}
-              className="absolute left-0 top-0 h-full w-full bg-amber-accent origin-left"
-            />
-          </div>
-          <div className="flex justify-between items-center text-[10px] font-mono text-parchment/30 mt-2 select-none">
-            <span>INDEX: PROJECT 01</span>
-            <span>INDEX: PROJECT 05</span>
-          </div>
-        </div>
       </div>
     </div>
   );

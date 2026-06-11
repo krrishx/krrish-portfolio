@@ -190,10 +190,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
   const rendered = childArr.map((child, i) => {
     if (isValidElement(child)) {
-      const element = child as React.ReactElement<{
-        style?: React.CSSProperties;
-        onClick?: React.MouseEventHandler;
-      }>;
+      const element = child as React.ReactElement<any>;
       return cloneElement(element, {
         key: i,
         ref: refs[i],

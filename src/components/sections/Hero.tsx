@@ -1,12 +1,22 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowDownRight, Compass, Sparkles } from "lucide-react";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Animation variants
   const containerVariants = {
@@ -93,16 +103,16 @@ export default function Hero() {
         </div>
 
         {/* Draggable scrapbook overlays */}
-        <div className="lg:col-span-4 relative min-h-[360px] lg:min-h-[450px]">
+        <div className="lg:col-span-4 relative min-h-[500px] lg:min-h-[450px]">
           {/* Handwritten Card */}
           <motion.div
             drag
             dragConstraints={containerRef}
             whileDrag={{ scale: 1.05, rotate: -2 }}
-            initial={{ x: 20, y: 10, rotate: 3 }}
+            initial={isMobile ? { x: 0, y: 10, rotate: 3 } : { x: 20, y: 10, rotate: 3 }}
             data-cursor="drag"
             data-cursor-text="drag me"
-            className="absolute top-4 right-4 lg:right-0 bg-[#fbf2c0] text-charcoal p-5 w-64 shadow-xl border border-charcoal/10 font-handwriting text-xl cursor-grab active:cursor-grabbing select-none"
+            className="absolute top-4 right-2 sm:right-4 lg:right-0 bg-[#fbf2c0] text-charcoal p-5 w-56 sm:w-64 shadow-xl border border-charcoal/10 font-handwriting text-xl cursor-grab active:cursor-grabbing select-none z-10"
           >
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-4 bg-charcoal/5 border-x border-charcoal/10 pointer-events-none" />
             <h4 className="font-sans font-bold text-[10px] uppercase tracking-widest text-charcoal/40 mb-2">
@@ -122,10 +132,10 @@ export default function Hero() {
             drag
             dragConstraints={containerRef}
             whileDrag={{ scale: 1.05, rotate: 2 }}
-            initial={{ x: -10, y: 150, rotate: -5 }}
+            initial={isMobile ? { x: 0, y: 160, rotate: -5 } : { x: -10, y: 150, rotate: -5 }}
             data-cursor="drag"
             data-cursor-text="drag me"
-            className="absolute top-16 left-4 lg:-left-12 bg-parchment text-charcoal p-4 pb-10 w-64 shadow-2xl border border-steel/20 cursor-grab active:cursor-grabbing select-none"
+            className="absolute top-4 left-2 sm:left-4 lg:-left-12 bg-parchment text-charcoal p-4 pb-10 w-56 sm:w-64 shadow-2xl border border-steel/20 cursor-grab active:cursor-grabbing select-none z-10"
           >
             <div className="w-full aspect-square bg-[#151517] relative overflow-hidden">
               <img
@@ -135,7 +145,7 @@ export default function Hero() {
               />
             </div>
             <p className="font-handwriting text-lg text-charcoal text-center mt-4 leading-none">
-              Field Entry #001
+              Main Character #001
             </p>
           </motion.div>
 
@@ -144,10 +154,10 @@ export default function Hero() {
             drag
             dragConstraints={containerRef}
             whileDrag={{ scale: 1.08 }}
-            initial={{ x: 80, y: 280, rotate: 6 }}
+            initial={isMobile ? { x: 0, y: 390, rotate: 6 } : { x: 80, y: 280, rotate: 6 }}
             data-cursor="drag"
             data-cursor-text="drag me"
-            className="absolute top-36 right-8 bg-[#151517] border border-steel/50 text-parchment p-4 rounded w-56 shadow-2xl flex items-center gap-3 cursor-grab active:cursor-grabbing select-none hover:border-amber-accent transition-colors duration-300"
+            className="absolute top-4 right-2 sm:right-8 bg-[#151517] border border-steel/50 text-parchment p-4 rounded w-48 sm:w-56 shadow-2xl flex items-center gap-3 cursor-grab active:cursor-grabbing select-none hover:border-amber-accent transition-colors duration-300 z-10"
           >
             <div className="w-8 h-8 rounded-full bg-amber-accent/10 border border-amber-accent/20 flex items-center justify-center shrink-0">
               <Sparkles className="w-4 h-4 text-amber-accent" />

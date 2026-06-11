@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Pin, Award, Calendar, Bookmark } from "lucide-react";
 
@@ -14,6 +15,17 @@ interface Highlight {
 }
 
 export default function Highlights() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const highlights: Highlight[] = [
     {
       id: "sail",
@@ -130,8 +142,8 @@ export default function Highlights() {
               drag
               dragConstraints={{ left: -100, right: 100, top: -50, bottom: 50 }}
               whileDrag={{ scale: 1.05, zIndex: 30 }}
-              initial={{ rotate: hl.angle }}
-              whileHover={{ rotate: hl.angle * 0.3 }}
+              initial={{ rotate: isMobile ? hl.angle * 0.3 : hl.angle }}
+              whileHover={{ rotate: isMobile ? hl.angle * 0.1 : hl.angle * 0.3 }}
               className={`p-6 rounded relative border shadow-xl flex flex-col justify-between min-h-[280px] cursor-grab active:cursor-grabbing select-none ${hl.colorClass}`}
             >
               {/* Paper Clip Visual */}

@@ -10,15 +10,55 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !message) return;
 
-    // Trigger paper airplane flight sequence
     setFormState("folding");
-    setTimeout(() => {
-      setFormState("sent");
-    }, 1800);
+    const startTime = Date.now();
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name,
+          email,
+          message,
+          subject: `New Portfolio Message from ${name}`,
+          from_name: "Krrish Raj Portfolio",
+        }),
+      });
+
+      const data = await response.json();
+      
+      // Ensure the folding airplane animation plays for at least 1.5 seconds for premium UX
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, 1500 - elapsedTime);
+      await new Promise((resolve) => setTimeout(resolve, remainingTime));
+
+      if (data.success) {
+        setFormState("sent");
+      } else {
+        console.error("Web3Forms submission failed:", data.message);
+        alert(`Failed to send dispatch: ${data.message || "Unknown error"}. Make sure NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is set in your .env.local file.`);
+        setFormState("idle");
+      }
+    } catch (err) {
+      console.error("Error submitting contact form:", err);
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, 1500 - elapsedTime);
+      await new Promise((resolve) => setTimeout(resolve, remainingTime));
+      
+      alert("Error sending dispatch. Please try again or email directly.");
+      setFormState("idle");
+    }
   };
 
   const handleReset = () => {

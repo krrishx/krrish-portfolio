@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Code2, Database, Brain, Sparkles, X, Compass, Layers } from "lucide-react";
 import CardSwap, { Card } from "./CardSwap";
@@ -20,6 +20,16 @@ interface Chapter {
 export default function Story() {
   const [activeChapter, setActiveChapter] = useState<Chapter | null>(null);
   const storyRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const chapters: Chapter[] = [
     {
@@ -169,10 +179,10 @@ export default function Story() {
         <div className="lg:col-span-5 flex flex-col items-center justify-center relative lg:sticky lg:top-32 pt-8 lg:pt-0">
           <div className="relative w-80 h-[400px] max-w-full flex items-center justify-center scale-90 sm:scale-95 lg:scale-100 transition-transform duration-300">
             <CardSwap
-              width={288}
-              height={360}
-              cardDistance={20}
-              verticalDistance={20}
+              width={isMobile ? 252 : 288}
+              height={isMobile ? 320 : 360}
+              cardDistance={isMobile ? 12 : 20}
+              verticalDistance={isMobile ? 12 : 20}
               delay={5000}
               pauseOnHover={true}
               onCardClick={(idx) => {
