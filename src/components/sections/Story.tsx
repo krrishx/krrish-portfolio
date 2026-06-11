@@ -95,9 +95,9 @@ export default function Story() {
   ];
 
   return (
-    <section id="story" ref={storyRef} className="relative min-h-screen py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal">
+    <section id="story" ref={storyRef} className="relative min-h-screen pt-24 pb-12 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal scroll-mt-20">
       {/* Background Section Index Header */}
-      <div className="absolute top-8 left-6 md:left-12 lg:left-20 font-mono text-[11px] text-amber-accent tracking-widest uppercase">
+      <div className="absolute top-12 left-6 md:top-8 md:left-12 lg:left-20 font-mono text-[11px] text-amber-accent tracking-widest uppercase">
         01 // BUILDER&apos;S LOG
       </div>
 
@@ -110,7 +110,7 @@ export default function Story() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-syne text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-parchment uppercase leading-[0.95]">
+            <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-parchment uppercase leading-[0.95]">
               Breaking things <br />
               <span className="text-amber-accent italic font-serif lowercase">to learn</span> <br />
               how to build.
@@ -177,10 +177,10 @@ export default function Story() {
 
         {/* Right Interactive card stack column */}
         <div className="lg:col-span-5 flex flex-col items-center justify-center relative lg:sticky lg:top-32 pt-8 lg:pt-0">
-          <div className="relative w-80 h-[400px] max-w-full flex items-center justify-center scale-90 sm:scale-95 lg:scale-100 transition-transform duration-300">
+          <div className="relative w-80 h-[400px] max-w-full flex items-center justify-center scale-95 lg:scale-100 transition-transform duration-300">
             <CardSwap
-              width={isMobile ? 252 : 288}
-              height={isMobile ? 320 : 360}
+              width={isMobile ? 300 : 288}
+              height={isMobile ? 350 : 360}
               cardDistance={isMobile ? 12 : 20}
               verticalDistance={isMobile ? 12 : 20}
               delay={5000}

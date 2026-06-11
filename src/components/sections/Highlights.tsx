@@ -108,10 +108,10 @@ export default function Highlights() {
   ];
 
   return (
-    <section id="highlights" className="relative min-h-screen py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal overflow-hidden">
+    <section id="highlights" className="relative min-h-screen pt-24 pb-12 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal overflow-hidden scroll-mt-20">
       
       {/* Background Section Index Header */}
-      <div className="absolute top-8 left-6 md:left-12 lg:left-20 font-mono text-[11px] text-amber-accent tracking-widest uppercase">
+      <div className="absolute top-12 left-6 md:top-8 md:left-12 lg:left-20 font-mono text-[11px] text-amber-accent tracking-widest uppercase">
         03 // SELECTED HIGHLIGHTS
       </div>
 
@@ -120,7 +120,7 @@ export default function Highlights() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-4">
           <div>
-            <h2 className="font-syne text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-parchment">
+            <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-parchment">
               Selected Highlights.
             </h2>
             <p className="text-parchment/60 font-sans mt-2 text-base md:text-lg max-w-xl">

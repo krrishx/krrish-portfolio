@@ -216,7 +216,7 @@ const response = await gemini.generate({
   ];
 
   return (
-    <div id="projects" ref={containerRef} className="relative h-[600vh] bg-charcoal">
+    <div id="projects" ref={containerRef} className="relative h-auto lg:h-[600vh] bg-charcoal scroll-mt-20">
       {/* Sticky horizontal viewport */}
       <div className="lg:sticky lg:top-0 lg:h-screen w-full lg:overflow-hidden flex flex-col justify-start py-8 gap-8 md:gap-12 relative h-auto overflow-visible">
 
@@ -250,13 +250,13 @@ const response = await gemini.generate({
         </div>
 
         {/* Transforming Horizontal Container */}
-        <motion.div style={isMobile ? {} : { x }} className="flex flex-col lg:flex-row h-auto lg:h-[70vh] w-full lg:w-[600vw] relative z-10 gap-16 lg:gap-0">
+        <motion.div style={isMobile ? {} : { x }} className="flex flex-col lg:flex-row h-auto lg:h-[70vh] w-full lg:w-[600vw] relative z-10 gap-8 lg:gap-0">
           {/* Cover Panel / Heading slide */}
-          <div className="w-full lg:w-screen h-auto lg:h-full shrink-0 px-6 md:px-12 lg:px-20 flex flex-col justify-center relative py-12 lg:py-0 border-b border-steel/10 lg:border-b-0">
+          <div className="w-full lg:w-screen h-auto lg:h-full shrink-0 px-6 md:px-12 lg:px-20 flex flex-col justify-center relative min-h-[45vh] lg:min-h-0 py-16 lg:py-0 border-b border-steel/10 lg:border-b-0">
             <div className="absolute inset-y-0 right-0 w-[45%] border-l border-steel/10 pointer-events-none hidden md:block" />
 
             {/* Right side Projects Admission Ticket (taped to the page) */}
-            <div className="absolute right-12 lg:right-20 top-1/2 -translate-y-1/2 hidden lg:flex flex-col select-none">
+            <div className="hidden md:flex lg:absolute md:relative lg:right-20 lg:top-1/2 lg:-translate-y-1/2 md:mt-8 md:mx-auto md:w-fit flex-col select-none">
               <div className="relative">
 
                 {/* Perforated Ticket Access Pass */}
@@ -375,7 +375,7 @@ const response = await gemini.generate({
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-accent animate-pulse" />
               </div>
-              <h2 className="font-syne text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[0.95] text-parchment uppercase tracking-tight">
+              <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[0.95] text-parchment uppercase tracking-tight">
                 Selected <br />
                 <span className="text-amber-accent italic font-serif lowercase">creations &amp;</span> <br />
                 Case Studies.
@@ -399,19 +399,19 @@ const response = await gemini.generate({
           {projects.map((proj) => (
             <div
               key={proj.id}
-              className="w-full lg:w-screen h-auto lg:h-full shrink-0 px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-12 lg:py-0 border-b border-steel/10 lg:border-b-0"
+              className="w-full lg:w-screen h-auto lg:h-full shrink-0 px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-8 lg:py-0 border-b border-steel/10 lg:border-b-0"
             >
               {/* Project Title and Text Detail */}
               <div className="lg:col-span-6 space-y-4">
-                <div className="flex items-baseline gap-4">
+                <div className="flex flex-col sm:flex-row items-start sm:items-baseline gap-2 sm:gap-4 w-full">
                   <span className="font-mono text-4xl text-amber-accent/30 font-extrabold select-none">
                     {proj.num}
                   </span>
-                  <div>
+                  <div className="w-full">
                     <span className="font-mono text-[10px] text-amber-accent uppercase tracking-widest block mb-1">
                       {proj.category}
                     </span>
-                    <h3 className="font-syne text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-parchment">
+                    <h3 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-parchment">
                       {proj.title}
                     </h3>
                   </div>
@@ -470,16 +470,16 @@ const response = await gemini.generate({
               {/* Showcase & Terminal Mockups */}
               <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                 {/* Metrics Notebook Card */}
-                <div className="md:col-span-4 grid grid-cols-3 md:flex md:flex-col gap-3 md:space-y-4">
+                <div className="md:col-span-4 grid grid-cols-3 md:flex md:flex-col gap-2 sm:gap-3 md:space-y-4">
                   {proj.metrics.map((met, i) => (
                     <div
                       key={i}
-                      className="bg-[#151517] border border-steel/30 p-4 rounded flex flex-col justify-between shadow-lg hover:border-amber-accent transition-colors duration-300"
+                      className="bg-[#151517] border border-steel/30 p-2 sm:p-3 md:p-4 rounded flex flex-col justify-between shadow-lg hover:border-amber-accent transition-colors duration-300 min-w-0"
                     >
-                      <span className="font-mono text-[9px] text-parchment/40 uppercase">
+                      <span className="font-mono text-[8px] sm:text-[9px] text-parchment/40 uppercase leading-tight break-words">
                         {met.label}
                       </span>
-                      <span className="font-syne text-2xl font-black text-amber-accent mt-1">
+                      <span className="font-syne text-xs sm:text-base md:text-xl lg:text-2xl font-black text-amber-accent mt-1 break-words">
                         {met.value}
                       </span>
                     </div>

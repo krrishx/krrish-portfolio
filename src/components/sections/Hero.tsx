@@ -103,7 +103,7 @@ export default function Hero() {
         </div>
 
         {/* Draggable scrapbook overlays */}
-        <div className="lg:col-span-4 relative min-h-[500px] lg:min-h-[450px]">
+        <div className="lg:col-span-4 relative min-h-[500px] lg:min-h-[450px] md:max-w-2xl md:mx-auto w-full">
           {/* Handwritten Card */}
           <motion.div
             drag
@@ -135,7 +135,7 @@ export default function Hero() {
             initial={isMobile ? { x: 0, y: 160, rotate: -5 } : { x: -10, y: 150, rotate: -5 }}
             data-cursor="drag"
             data-cursor-text="drag me"
-            className="absolute top-4 left-2 sm:left-4 lg:-left-12 bg-parchment text-charcoal p-4 pb-10 w-56 sm:w-64 shadow-2xl border border-steel/20 cursor-grab active:cursor-grabbing select-none z-10"
+            className="absolute top-4 left-2 sm:left-4 lg:left-0 bg-parchment text-charcoal p-4 pb-10 w-56 sm:w-64 lg:w-72 shadow-2xl border border-steel/20 cursor-grab active:cursor-grabbing select-none z-10"
           >
             <div className="w-full aspect-square bg-[#151517] relative overflow-hidden">
               <img

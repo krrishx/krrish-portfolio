@@ -21,14 +21,4 @@
   -webkit-backface-visibility: hidden;
 }
 
-@media (max-width: 768px) {
-  .card-swap-container {
-    transform: scale(0.85);
-  }
-}
 
-@media (max-width: 480px) {
-  .card-swap-container {
-    transform: scale(0.7);
-  }
-}
