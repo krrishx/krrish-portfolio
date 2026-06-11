@@ -292,7 +292,7 @@ export default function Contact() {
 
         {/* Footer / Copyright details */}
         <div className="flex justify-center items-center border-t border-steel/20 pt-8 text-[10px] font-mono text-parchment/30 select-none">
-          <span>MADE WITH ❤️ BY KRRISH RAJ // ALL SYSTEM LOGS GREEN</span>
+          <span>Made with ♥ by Krrish :)</span>
         </div>
 
       </div>

@@ -1,44 +1,70 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, Layout, Compass, Layers, Smartphone, Users, Database, Brain, Code2, Sparkles } from "lucide-react";
+import { Compass, Code2 } from "lucide-react";
+import { FaJava } from "react-icons/fa";
+import {
+  SiPython,
+  SiReact,
+  SiKotlin,
+  SiMongodb,
+  SiNodedotjs,
+  SiFigma,
+  SiTensorflow,
+  SiScikitlearn,
+  SiExpress,
+  SiAndroid,
+  SiPandas,
+  SiOpencv,
+  SiFirebase,
+  SiGit,
+  SiPostgresql,
+} from "react-icons/si";
+import {
+  TbBrandAdobeIllustrator,
+  TbBrandAdobePremier,
+  TbBulb,
+  TbCrown,
+  TbPresentation,
+  TbUsersGroup,
+} from "react-icons/tb";
 
 interface SkillItem {
   name: string;
   desc: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 export default function Skills() {
   const track1: SkillItem[] = [
-    { name: "Python", desc: "Used for anomaly detection systems, automation, and machine learning pipelines.", icon: <Code2 className="w-4 h-4 text-amber-accent" /> },
-    { name: "React / Next.js", desc: "Modern interactive web interfaces, design systems, and frontend architecture.", icon: <Layout className="w-4 h-4 text-amber-accent" /> },
-    { name: "Kotlin", desc: "Native Android applications built using modern Jetpack UI frameworks.", icon: <Smartphone className="w-4 h-4 text-amber-accent" /> },
-    { name: "MongoDB", desc: "Caches telemetry data, indices unstructured records, and executes searches.", icon: <Database className="w-4 h-4 text-amber-accent" /> },
-    { name: "Node.js", desc: "Event-driven high-performance backend microservices and API routing.", icon: <Cpu className="w-4 h-4 text-amber-accent" /> },
-    { name: "Figma", desc: "High-fidelity prototypes, system wireframes, and design specs.", icon: <Compass className="w-4 h-4 text-amber-accent" /> },
-    { name: "Java", desc: "Backend application architecture, object-oriented design structures, and platform systems.", icon: <Code2 className="w-4 h-4 text-amber-accent" /> },
+    { name: "Python", desc: "Used for anomaly detection systems, automation, and machine learning pipelines.", icon: <SiPython className="w-4 h-4 text-amber-accent" /> },
+    { name: "React / Next.js", desc: "Modern interactive web interfaces, design systems, and frontend architecture.", icon: <SiReact className="w-4 h-4 text-amber-accent" /> },
+    { name: "Kotlin", desc: "Native Android applications built using modern Jetpack UI frameworks.", icon: <SiKotlin className="w-4 h-4 text-amber-accent" /> },
+    { name: "MongoDB", desc: "Caches telemetry data, indices unstructured records, and executes searches.", icon: <SiMongodb className="w-4 h-4 text-amber-accent" /> },
+    { name: "Node.js", desc: "Event-driven high-performance backend microservices and API routing.", icon: <SiNodedotjs className="w-4 h-4 text-amber-accent" /> },
+    { name: "Figma", desc: "High-fidelity prototypes, system wireframes, and design specs.", icon: <SiFigma className="w-4 h-4 text-amber-accent" /> },
+    { name: "Java", desc: "Backend application architecture, object-oriented design structures, and platform systems.", icon: <FaJava className="w-4 h-4 text-amber-accent" /> },
   ];
 
   const track2: SkillItem[] = [
-    { name: "Machine Learning", desc: "Autoencoders, neural networks, and multi-sensor predictive diagnostics.", icon: <Brain className="w-4 h-4 text-amber-accent" /> },
-    { name: "Scikit-Learn", desc: "Predictive model training, clustering models, and telemetry preprocessing.", icon: <Layers className="w-4 h-4 text-amber-accent" /> },
-    { name: "Express.js", desc: "Custom security middleware, rate-limiting, and RESTful routing.", icon: <Cpu className="w-4 h-4 text-amber-accent" /> },
-    { name: "Jetpack Compose", desc: "Declarative UI with spring physics and custom canvas renderings.", icon: <Smartphone className="w-4 h-4 text-amber-accent" /> },
-    { name: "Adobe Illustrator", desc: "Visual vector design, technical layouts, and brand assets.", icon: <Layers className="w-4 h-4 text-amber-accent" /> },
-    { name: "Pandas", desc: "Data cleaning, real-time ingestion pipelines, and FFT telemetry features.", icon: <Database className="w-4 h-4 text-amber-accent" /> },
-    { name: "OpenCV", desc: "Used for real-time edge detection, computer vision models, and camera frames processing.", icon: <Compass className="w-4 h-4 text-amber-accent" /> },
+    { name: "Machine Learning", desc: "Autoencoders, neural networks, and multi-sensor predictive diagnostics.", icon: <SiTensorflow className="w-4 h-4 text-amber-accent" /> },
+    { name: "Scikit-Learn", desc: "Predictive model training, clustering models, and telemetry preprocessing.", icon: <SiScikitlearn className="w-4 h-4 text-amber-accent" /> },
+    { name: "Express.js", desc: "Custom security middleware, rate-limiting, and RESTful routing.", icon: <SiExpress className="w-4 h-4 text-amber-accent" /> },
+    { name: "Jetpack Compose", desc: "Declarative UI with spring physics and custom canvas renderings.", icon: <SiAndroid className="w-4 h-4 text-amber-accent" /> },
+    { name: "Adobe Illustrator", desc: "Visual vector design, technical layouts, and brand assets.", icon: <TbBrandAdobeIllustrator className="w-4 h-4 text-amber-accent" /> },
+    { name: "Pandas", desc: "Data cleaning, real-time ingestion pipelines, and FFT telemetry features.", icon: <SiPandas className="w-4 h-4 text-amber-accent" /> },
+    { name: "OpenCV", desc: "Used for real-time edge detection, computer vision models, and camera frames processing.", icon: <SiOpencv className="w-4 h-4 text-amber-accent" /> },
   ];
 
   const track3: SkillItem[] = [
-    { name: "Firebase", desc: "Real-time database sync, user auth, and serverless functions.", icon: <Database className="w-4 h-4 text-amber-accent" /> },
-    { name: "Adobe Premiere Pro", desc: "Video timelines, custom overlays, and post-production rendering.", icon: <Layout className="w-4 h-4 text-amber-accent" /> },
-    { name: "Team Management", desc: "Coordinating developers, agile sprints, and code standards.", icon: <Users className="w-4 h-4 text-amber-accent" /> },
-    { name: "Public Speaking", desc: "Presenting tech specs and explaining system architectural blueprints.", icon: <Sparkles className="w-4 h-4 text-amber-accent" /> },
-    { name: "Leadership", desc: "Directing projects from initial concept phase to verified deployments.", icon: <Users className="w-4 h-4 text-amber-accent" /> },
-    { name: "Critical Thinking", desc: "Refactoring modules, performance caching, and debugging systems.", icon: <Brain className="w-4 h-4 text-amber-accent" /> },
-    { name: "SQL", desc: "Relational database schema modeling, queries optimization, and telemetry archiving.", icon: <Database className="w-4 h-4 text-amber-accent" /> },
-    { name: "Git", desc: "Distributed version control, repository branches, and code repository pipeline flows.", icon: <Layers className="w-4 h-4 text-amber-accent" /> },
+    { name: "Firebase", desc: "Real-time database sync, user auth, and serverless functions.", icon: <SiFirebase className="w-4 h-4 text-amber-accent" /> },
+    { name: "Adobe Premiere Pro", desc: "Video timelines, custom overlays, and post-production rendering.", icon: <TbBrandAdobePremier className="w-4 h-4 text-amber-accent" /> },
+    { name: "Team Management", desc: "Coordinating developers, agile sprints, and code standards.", icon: <TbUsersGroup className="w-4 h-4 text-amber-accent" /> },
+    { name: "Public Speaking", desc: "Presenting tech specs and explaining system architectural blueprints.", icon: <TbPresentation className="w-4 h-4 text-amber-accent" /> },
+    { name: "Leadership", desc: "Directing projects from initial concept phase to verified deployments.", icon: <TbCrown className="w-4 h-4 text-amber-accent" /> },
+    { name: "Critical Thinking", desc: "Refactoring modules, performance caching, and debugging systems.", icon: <TbBulb className="w-4 h-4 text-amber-accent" /> },
+    { name: "SQL", desc: "Relational database schema modeling, queries optimization, and telemetry archiving.", icon: <SiPostgresql className="w-4 h-4 text-amber-accent" /> },
+    { name: "Git", desc: "Distributed version control, repository branches, and code repository pipeline flows.", icon: <SiGit className="w-4 h-4 text-amber-accent" /> },
   ];
 
   const drawLine = {
@@ -56,6 +82,7 @@ export default function Skills() {
   const renderTrack = (items: SkillItem[], reverse = false) => {
     // Duplicate to ensure seamless looping marquee
     const duplicatedItems = [...items, ...items];
+    const fallbackIcon = <Code2 className="w-4 h-4 text-amber-accent" />;
     return (
       <div className="overflow-hidden w-full flex select-none pointer-events-auto py-2">
         <div
@@ -71,14 +98,11 @@ export default function Skills() {
               <div>
                 <div className="flex justify-between items-center border-b border-steel/20 pb-2 mb-3">
                   <div className="flex items-center gap-2">
-                    {item.icon}
+                    {item.icon ?? fallbackIcon}
                     <span className="font-syne text-xs font-bold uppercase tracking-tight text-parchment group-hover:text-amber-accent transition-colors">
                       {item.name}
                     </span>
                   </div>
-                  <span className="font-mono text-[8px] text-parchment/30">
-                    [ {idx < items.length ? `SK_0${idx + 1}` : `SK_0${idx - items.length + 1}`} ]
-                  </span>
                 </div>
                 <p className="text-xs text-parchment/60 font-sans leading-relaxed">
                   {item.desc}

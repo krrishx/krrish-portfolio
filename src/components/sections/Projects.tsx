@@ -100,7 +100,7 @@ export default function Projects() {
     {
       id: "smartbite",
       num: "02",
-      title: "SmartBite App",
+      title: "SmartBite",
       category: "AI Meal Planner App",
       description: "An AI-driven food recommendation app providing personalized, ingredient-based recipe suggestions and meal planning. Implemented Firebase authentication, smart notifications, and grocery inventory management.",
       tech: ["Android (Kotlin)", "Firebase", "Jetpack Compose"],
