@@ -155,10 +155,10 @@ export default function Hero() {
             drag
             dragConstraints={containerRef}
             whileDrag={{ scale: 1.08 }}
-            initial={isMobile ? { x: 0, y: 390, rotate: 6 } : { x: 80, y: 280, rotate: 6 }}
+            initial={isMobile ? { x: 0, y: 390, rotate: 6 } : { x: 0, y: 280, rotate: 6 }}
             data-cursor="drag"
             data-cursor-text="drag me"
-            className="absolute top-4 right-2 sm:right-8 bg-[#28282B] border border-steel/50 p-3 rounded w-52 sm:w-60 lg:w-64 shadow-2xl cursor-grab active:cursor-grabbing select-none hover:border-amber-accent transition-colors duration-300 z-10"
+            className="absolute top-4 right-4 sm:right-8 lg:right-[-48px] bg-[#28282B] border border-steel/50 p-3 rounded w-52 sm:w-60 lg:w-64 shadow-2xl cursor-grab active:cursor-grabbing select-none hover:border-amber-accent transition-colors duration-300 z-10"
           >
             <div className="w-full aspect-[4/5] relative overflow-hidden bg-black/20 rounded-sm">
               <img
