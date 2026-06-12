@@ -94,10 +94,12 @@ export default function Hero() {
               <ArrowDownRight className="w-4 h-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform" />
             </a>
             <a
-              href="#contact"
-              className="group flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-parchment/50 hover:text-amber-accent px-6 py-3 border border-steel/30 hover:border-amber-accent transition-all duration-300"
+              href="/KRRISH_RESUME.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 font-sans font-bold px-6 py-3 rounded-sm border border-amber-accent text-amber-accent hover:bg-amber-accent hover:text-charcoal transition-all duration-300"
             >
-              Get in Touch
+              Resume
             </a>
           </motion.div>
         </div>
