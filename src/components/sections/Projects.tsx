@@ -238,7 +238,6 @@ const response = await gemini.generate({
               </span>
             </div>
             <div className="flex items-center gap-2 text-xs font-mono text-parchment/40">
-              <span>[ SCROLL DOWN ]</span>
             </div>
           </div>
 
