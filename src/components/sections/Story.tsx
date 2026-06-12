@@ -110,7 +110,7 @@ export default function Story() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-parchment uppercase leading-[0.95]">
+            <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold tracking-tight text-parchment uppercase leading-[0.95]">
               Breaking things <br />
               <span className="text-amber-accent italic font-serif lowercase">to learn</span> <br />
               how to build.
@@ -125,7 +125,7 @@ export default function Story() {
             className="space-y-6 text-parchment/70 font-sans text-base md:text-lg leading-relaxed relative"
           >
             {/* Absolute handwritten sticky note overlay in margins */}
-            <div className="absolute -right-8 lg:-right-24 top-0 w-36 hidden xl:block pointer-events-none transform rotate-6 animate-float-medium">
+            <div className="absolute -right-8 xl:-right-6 2xl:-right-24 top-0 w-36 hidden xl:block pointer-events-none transform rotate-6 animate-float-medium">
               <span className="font-handwriting text-amber-accent text-xl leading-none block">
                 * Coffee intake: critical.
               </span>

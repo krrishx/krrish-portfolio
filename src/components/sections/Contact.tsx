@@ -80,7 +80,7 @@ export default function Contact() {
         
         {/* Editorial Heading */}
         <div className="text-center md:text-left">
-          <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-parchment leading-none">
+          <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold uppercase tracking-tight text-parchment leading-none">
             Send a Dispatch.
           </h2>
           <p className="text-parchment/65 font-sans mt-3 text-base md:text-lg max-w-lg">

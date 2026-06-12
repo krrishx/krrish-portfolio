@@ -142,7 +142,7 @@ export default function Skills() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-4">
           <div>
-            <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-parchment">
+            <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold uppercase tracking-tight text-parchment">
               Technical Blueprints.
             </h2>
             <p className="text-parchment/60 font-sans mt-2 text-base md:text-lg max-w-xl">

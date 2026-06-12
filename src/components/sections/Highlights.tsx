@@ -120,11 +120,11 @@ export default function Highlights() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-4">
           <div>
-            <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-parchment">
+            <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold uppercase tracking-tight text-parchment">
               Selected Highlights.
             </h2>
             <p className="text-parchment/60 font-sans mt-2 text-base md:text-lg max-w-xl">
-              Archived field findings and notes documenting engineering applications, academic history, and design contributions. Drag notes to inspect.
+              Archived field findings and notes documenting engineering applications, academic history, and design contributions.
             </p>
           </div>
           <div className="flex items-center gap-2 font-mono text-xs text-amber-accent select-none mt-2">
@@ -139,12 +139,9 @@ export default function Highlights() {
           {highlights.map((hl) => (
             <motion.div
               key={hl.id}
-              drag
-              dragConstraints={{ left: -100, right: 100, top: -50, bottom: 50 }}
-              whileDrag={{ scale: 1.05, zIndex: 30 }}
               initial={{ rotate: isMobile ? hl.angle * 0.3 : hl.angle }}
-              whileHover={{ rotate: isMobile ? hl.angle * 0.1 : hl.angle * 0.3 }}
-              className={`p-6 rounded relative border shadow-xl flex flex-col justify-between min-h-[280px] cursor-grab active:cursor-grabbing select-none ${hl.colorClass}`}
+              whileHover={{ scale: 1.02, rotate: isMobile ? hl.angle * 0.1 : hl.angle * 0.3 }}
+              className={`p-6 rounded relative border shadow-xl flex flex-col justify-between min-h-[280px] select-none ${hl.colorClass}`}
             >
               {/* Paper Clip Visual */}
               <div className="absolute -top-3 left-6 text-amber-accent/80 opacity-90 z-20 pointer-events-none transform -rotate-12">
