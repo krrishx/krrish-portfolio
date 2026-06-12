@@ -103,7 +103,7 @@ export default function Hero() {
         </div>
 
         {/* Draggable scrapbook overlays */}
-        <div className="lg:col-span-4 relative min-h-[500px] lg:min-h-[450px] md:max-w-2xl md:mx-auto w-full">
+        <div className="lg:col-span-4 relative min-h-[480px] md:min-h-[500px] lg:min-h-[450px] md:max-w-2xl md:mx-auto w-full mb-12 md:mb-0">
           {/* Handwritten Card */}
           <motion.div
             drag
@@ -112,7 +112,7 @@ export default function Hero() {
             initial={isMobile ? { x: 0, y: 10, rotate: 3 } : { x: 20, y: 10, rotate: 3 }}
             data-cursor="drag"
             data-cursor-text="drag me"
-            className="absolute top-4 right-2 sm:right-4 lg:right-0 bg-[#fbf2c0] text-charcoal p-5 w-56 sm:w-64 lg:w-52 xl:w-60 2xl:w-64 shadow-xl border border-charcoal/10 font-handwriting text-xl cursor-grab active:cursor-grabbing select-none z-10"
+            className="absolute top-4 right-2 sm:right-4 lg:right-0 bg-[#fbf2c0] text-charcoal p-5 w-44 sm:w-64 lg:w-52 xl:w-60 2xl:w-64 shadow-xl border border-charcoal/10 font-handwriting text-xl cursor-grab active:cursor-grabbing select-none z-10"
           >
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-4 bg-charcoal/5 border-x border-charcoal/10 pointer-events-none" />
             <h4 className="font-sans font-bold text-[10px] uppercase tracking-widest text-charcoal/40 mb-2">
@@ -132,10 +132,10 @@ export default function Hero() {
             drag
             dragConstraints={containerRef}
             whileDrag={{ scale: 1.05, rotate: 2 }}
-            initial={isMobile ? { x: 0, y: 160, rotate: -5 } : { x: -10, y: 150, rotate: -5 }}
+            initial={isMobile ? { x: 0, y: 120, rotate: -5 } : { x: -10, y: 150, rotate: -5 }}
             data-cursor="drag"
             data-cursor-text="drag me"
-            className="absolute top-4 left-2 sm:left-4 lg:left-0 bg-parchment text-charcoal p-4 pb-10 w-56 sm:w-64 lg:w-60 xl:w-68 2xl:w-72 shadow-2xl border border-steel/20 cursor-grab active:cursor-grabbing select-none z-10"
+            className="absolute top-4 left-2 sm:left-4 lg:left-0 bg-parchment text-charcoal p-4 pb-10 w-48 sm:w-64 lg:w-60 xl:w-68 2xl:w-72 shadow-2xl border border-steel/20 cursor-grab active:cursor-grabbing select-none z-10"
           >
             <div className="w-full aspect-square bg-[#28282B] relative overflow-hidden">
               <img
@@ -155,10 +155,10 @@ export default function Hero() {
             drag
             dragConstraints={containerRef}
             whileDrag={{ scale: 1.08 }}
-            initial={isMobile ? { x: 0, y: 390, rotate: 6 } : { x: 0, y: 280, rotate: 6 }}
+            initial={isMobile ? { x: 0, y: 240, rotate: 6 } : { x: 0, y: 280, rotate: 6 }}
             data-cursor="drag"
             data-cursor-text="drag me"
-            className="absolute top-4 right-4 sm:right-8 lg:right-[-48px] bg-[#28282B] border border-steel/50 p-3 rounded w-52 sm:w-60 lg:w-52 xl:w-60 2xl:w-64 shadow-2xl cursor-grab active:cursor-grabbing select-none hover:border-amber-accent transition-colors duration-300 z-10"
+            className="absolute top-4 right-4 sm:right-8 lg:right-[-48px] bg-[#28282B] border border-steel/50 p-3 rounded w-44 sm:w-60 lg:w-52 xl:w-60 2xl:w-64 shadow-2xl cursor-grab active:cursor-grabbing select-none hover:border-amber-accent transition-colors duration-300 z-10"
           >
             <div className="w-full aspect-[4/5] relative overflow-hidden bg-black/20 rounded-sm">
               <img

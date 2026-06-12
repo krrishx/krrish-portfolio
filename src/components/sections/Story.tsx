@@ -125,7 +125,7 @@ export default function Story() {
             className="space-y-6 text-parchment/70 font-sans text-base md:text-lg leading-relaxed relative"
           >
             {/* Absolute handwritten sticky note overlay in margins */}
-            <div className="absolute -right-8 xl:-right-6 2xl:-right-24 top-0 w-36 hidden xl:block pointer-events-none transform rotate-6 animate-float-medium">
+            <div className="absolute -right-8 xl:-right-6 2xl:-right-24 top-0 w-36 hidden min-[1400px]:block pointer-events-none transform rotate-6 animate-float-medium">
               <span className="font-handwriting text-amber-accent text-xl leading-none block">
                 * Coffee intake: critical.
               </span>
@@ -179,7 +179,7 @@ export default function Story() {
         <div className="lg:col-span-5 flex flex-col items-center justify-center relative lg:sticky lg:top-32 pt-8 lg:pt-0">
           <div className="relative w-80 h-[400px] max-w-full flex items-center justify-center scale-95 lg:scale-100 transition-transform duration-300">
             <CardSwap
-              width={isMobile ? 300 : 288}
+              width={isMobile ? "min(300px, 80vw)" : 288}
               height={isMobile ? 350 : 360}
               cardDistance={isMobile ? 12 : 20}
               verticalDistance={isMobile ? 12 : 20}

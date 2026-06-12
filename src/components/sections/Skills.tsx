@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Compass, Code2 } from "lucide-react";
 import { FaJava } from "react-icons/fa";
+import LogoLoop from "./LogoLoop";
 import {
   SiPython,
   SiReact,
@@ -65,6 +66,27 @@ export default function Skills() {
     { name: "Critical Thinking", desc: "Refactoring modules, performance caching, and debugging systems.", icon: <TbBulb className="w-4 h-4 text-amber-accent" /> },
     { name: "SQL", desc: "Relational database schema modeling, queries optimization, and telemetry archiving.", icon: <SiPostgresql className="w-4 h-4 text-amber-accent" /> },
     { name: "Git", desc: "Distributed version control, repository branches, and code repository pipeline flows.", icon: <SiGit className="w-4 h-4 text-amber-accent" /> },
+  ];
+
+  const loopLogos = [
+    { node: <SiPython className="text-amber-accent" />, title: "Python" },
+    { node: <SiReact className="text-amber-accent" />, title: "React" },
+    { node: <SiKotlin className="text-amber-accent" />, title: "Kotlin" },
+    { node: <SiMongodb className="text-amber-accent" />, title: "MongoDB" },
+    { node: <SiNodedotjs className="text-amber-accent" />, title: "Node.js" },
+    { node: <SiFigma className="text-amber-accent" />, title: "Figma" },
+    { node: <FaJava className="text-amber-accent" />, title: "Java" },
+    { node: <SiTensorflow className="text-amber-accent" />, title: "Tensorflow" },
+    { node: <SiScikitlearn className="text-amber-accent" />, title: "Scikit-Learn" },
+    { node: <SiExpress className="text-amber-accent" />, title: "Express.js" },
+    { node: <SiAndroid className="text-amber-accent" />, title: "Android" },
+    { node: <TbBrandAdobeIllustrator className="text-amber-accent" />, title: "Illustrator" },
+    { node: <SiPandas className="text-amber-accent" />, title: "Pandas" },
+    { node: <SiOpencv className="text-amber-accent" />, title: "OpenCV" },
+    { node: <SiFirebase className="text-amber-accent" />, title: "Firebase" },
+    { node: <TbBrandAdobePremier className="text-amber-accent" />, title: "Premiere Pro" },
+    { node: <SiPostgresql className="text-amber-accent" />, title: "PostgreSQL" },
+    { node: <SiGit className="text-amber-accent" />, title: "Git" },
   ];
 
   const drawLine = {
@@ -130,7 +152,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="relative min-h-screen pt-24 pb-12 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal grid-notebook overflow-hidden scroll-mt-20">
+    <section id="skills" className="relative min-h-fit md:min-h-screen pt-24 pb-12 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20 border-b border-steel/20 bg-charcoal grid-notebook overflow-hidden scroll-mt-20">
       
       {/* Background Section Index Header */}
       <div className="absolute top-12 left-6 md:top-8 md:left-12 lg:left-20 font-mono text-[11px] text-amber-accent tracking-widest uppercase">
@@ -175,10 +197,26 @@ export default function Skills() {
           </svg>
 
           {/* Scrolling Tickers Columns */}
-          <div className="relative z-10 flex flex-col gap-6 w-full">
+          <div className="relative z-10 hidden md:flex flex-col gap-6 w-full">
             {renderTrack(track1, false)}
             {renderTrack(track2, true)}
             {renderTrack(track3, false)}
+          </div>
+
+          {/* Mobile Logo Loop */}
+          <div className="relative z-10 block md:hidden w-full overflow-hidden py-2">
+            <LogoLoop
+              logos={loopLogos}
+              speed={50}
+              direction="left"
+              logoHeight={32}
+              gap={40}
+              hoverSpeed={0}
+              scaleOnHover
+              fadeOut
+              fadeOutColor="#1E1E1E"
+              ariaLabel="Technical skills loop"
+            />
           </div>
 
         </div>

@@ -19,22 +19,59 @@
   --animate-scribble: scribble 0.6s steps(4) infinite;
 
   @keyframes float-slow {
-    0%, 100% { transform: translateY(0px) rotate(-1deg); }
-    50% { transform: translateY(-12px) rotate(1.5deg); }
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(-1deg);
+    }
+
+    50% {
+      transform: translateY(-12px) rotate(1.5deg);
+    }
   }
+
   @keyframes float-medium {
-    0%, 100% { transform: translateY(0px) rotate(1deg); }
-    50% { transform: translateY(-8px) rotate(-1.5deg); }
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(1deg);
+    }
+
+    50% {
+      transform: translateY(-8px) rotate(-1.5deg);
+    }
   }
+
   @keyframes float-fast {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-6px) rotate(1deg); }
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-6px) rotate(1deg);
+    }
   }
+
   @keyframes scribble {
-    0%, 100% { transform: skewX(-1deg) rotate(-0.5deg); }
-    25% { transform: skewX(1deg) rotate(0.5deg); }
-    50% { transform: skewX(-0.5deg) rotate(1deg); }
-    75% { transform: skewX(0.5deg) rotate(-1deg); }
+
+    0%,
+    100% {
+      transform: skewX(-1deg) rotate(-0.5deg);
+    }
+
+    25% {
+      transform: skewX(1deg) rotate(0.5deg);
+    }
+
+    50% {
+      transform: skewX(-0.5deg) rotate(1deg);
+    }
+
+    75% {
+      transform: skewX(0.5deg) rotate(-1deg);
+    }
   }
 }
 
@@ -70,7 +107,7 @@ body {
 
 /* Grid & Notebook textures */
 .grid-notebook {
-  background-image: 
+  background-image:
     linear-gradient(rgba(243, 239, 224, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(243, 239, 224, 0.04) 1px, transparent 1px);
   background-size: 28px 28px;
@@ -134,7 +171,8 @@ body {
 }
 
 /* Custom smooth scroll wrapper style overrides */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -168,8 +206,13 @@ html.lenis, html.lenis body {
 
 /* Infinite Marquee animations */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -184,9 +227,11 @@ html.lenis, html.lenis body {
 .perspective-1000 {
   perspective: 1000px;
 }
+
 .transform-style-3d {
   transform-style: preserve-3d;
 }
+
 .backface-hidden {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;

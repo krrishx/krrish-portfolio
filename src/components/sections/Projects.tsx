@@ -25,10 +25,12 @@ interface Project {
 export default function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isUnderMd, setIsUnderMd] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);
+      setIsUnderMd(window.innerWidth < 768);
     };
     checkMobile();
     window.addEventListener("resize", checkMobile);
@@ -261,10 +263,10 @@ const response = await gemini.generate({
 
             {/* Right side Projects Admission Ticket (taped to the page) */}
             <div className="hidden max-md:flex md:flex lg:absolute md:relative lg:right-20 lg:top-1/2 lg:-translate-y-1/2 md:mt-8 md:mx-auto md:w-fit max-md:w-full max-md:items-center flex-col select-none">
-              <div className="relative">
+              <div className="relative max-md:w-full max-md:flex max-md:justify-center">
 
                 {/* Perforated Ticket Access Pass */}
-                <div className="w-[620px] max-w-full lg:max-w-[38vw] xl:max-w-[42vw] 2xl:max-w-[620px] h-72 bg-dark-gray border border-steel/30 rounded flex overflow-hidden shadow-2xl relative rotate-2 hover:rotate-0 transition-transform duration-500 tape-effect max-md:scale-[calc(90vw/620px)] max-md:origin-top">
+                <div className="hidden md:flex w-full max-w-[340px] md:w-[620px] lg:max-w-[38vw] xl:max-w-[42vw] 2xl:max-w-[620px] h-72 bg-dark-gray border border-steel/30 rounded flex overflow-hidden shadow-2xl relative rotate-2 hover:rotate-0 transition-transform duration-500 tape-effect">
 
                   {/* Left Visual Stub (red/orange tinted schematic diagram sketch) */}
                   <div className="w-[32%] bg-black/40 border-r border-steel/20 relative overflow-hidden flex items-center justify-center">
@@ -356,7 +358,7 @@ const response = await gemini.generate({
                 </div>
 
                 {/* Taped Sticky Note overlapping the ticket pass surface */}
-                <div className="absolute bottom-4 right-10 w-60 lg:w-44 xl:w-52 2xl:w-60 bg-[#faf5e6] text-charcoal p-4 pt-6 shadow-2xl border border-amber-900/15 rotate-[-2deg] z-30 tape-effect">
+                <div className={`relative md:absolute mx-auto md:mx-0 mt-[-20px] mb-4 md:my-0 bottom-auto right-auto md:bottom-4 md:right-10 w-fit md:w-60 lg:w-44 xl:w-52 2xl:w-60 whitespace-nowrap md:whitespace-normal bg-[#faf5e6] text-charcoal px-4 py-3 pt-5 md:p-4 md:pt-6 shadow-2xl border border-amber-900/15 rotate-[-2deg] z-30 ${isUnderMd ? "" : "tape-effect"}`}>
                   <div className="font-handwriting text-lg md:text-xl text-charcoal/90 leading-tight pt-1">
                     <span>Design should </span>
                     <span className="relative inline-block px-1">
@@ -372,7 +374,8 @@ const response = await gemini.generate({
               </div>
             </div>
 
-            <div className="max-w-4xl lg:max-w-[45%] xl:max-w-[50%] 2xl:max-w-4xl space-y-6">
+
+            <div className="max-w-4xl lg:max-w-[45%] xl:max-w-[50%] 2xl:max-w-4xl space-y-6 mt-12 md:mt-0">
               <div className="flex items-center gap-2 mb-2">
                 <span className="font-mono text-xs text-amber-accent uppercase tracking-widest block bg-amber-accent/5 px-2 py-0.5 rounded border border-amber-accent/15">
                   SEC_02 // SYSTEM WORKS
